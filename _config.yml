@@ -8,7 +8,7 @@ subtitle:
 description: 前端开发
 author: zhangshujuan(289784710@qq.com)
 language: zh-CN
-timezone: Asia/Hangzou
+timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
