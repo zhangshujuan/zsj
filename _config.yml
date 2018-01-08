@@ -77,7 +77,7 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-type: git
-  repo: https://github.com/zhangshujuan/HelloBlogger.git
+  type: git
+  repo: https://github.com/zhangshujuan/zsj.git
   branch: master
   message: update
