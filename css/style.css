@@ -4,7 +4,7 @@
   src: url("iconfont/iconfont.eot?t=1482994369217#iefix") format('embedded-opentype'), url("iconfont/iconfont.woff?t=1482994369217") format('woff'), url("iconfont/iconfont.ttf?t=1482994369217") format('truetype'), url("iconfont/iconfont.svg?t=1482994369217#iconfont") format('svg');
 }
 .outer {
-  max-width: 1220px;
+  max-width: 920px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -19,8 +19,8 @@
 .inner {
   display: inline;
   float: left;
-  width: 98.33333333333333%;
-  margin: 0 0.833333333333333%;
+  width: 97.77777777777777%;
+  margin: 0 1.111111111111111%;
 }
 .left,
 .alignleft {
@@ -51,14 +51,6 @@
 }
 .mobile-nav-on #wrap {
   left: 280px;
-}
-@media screen and (min-width: 768px) {
-  #main {
-    display: inline;
-    float: left;
-    width: 73.33333333333333%;
-    margin: 0 0.833333333333333%;
-  }
 }
 .archive-year {
   text-decoration: none;
