@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>父组件和子组件传递数据 | zhangshujuan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="父组件往子组件里面传数据1&amp;lt;LeftBar activeText=“基本信息&amp;quot;&amp;gt;&amp;lt;/LeftBar&amp;gt; 123456789101112&amp;lt;li :class=“&amp;#123;‘active’:activeText==‘基本信息&amp;apos;&amp;#125;&amp;quot;&amp;gt;//子组件    &amp;lt;a :href=&amp;quot;baseInfoUrl&amp;quot;&amp;gt;">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="父组件和子组件传递数据">
+<meta property="og:url" content="http://zhangshujuan.cn/2018/01/09/父组件和子组件传递数据/index.html">
+<meta property="og:site_name" content="zhangshujuan">
+<meta property="og:description" content="父组件往子组件里面传数据1&amp;lt;LeftBar activeText=“基本信息&amp;quot;&amp;gt;&amp;lt;/LeftBar&amp;gt; 123456789101112&amp;lt;li :class=“&amp;#123;‘active’:activeText==‘基本信息&amp;apos;&amp;#125;&amp;quot;&amp;gt;//子组件    &amp;lt;a :href=&amp;quot;baseInfoUrl&amp;quot;&amp;gt;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-09T08:35:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="父组件和子组件传递数据">
+<meta name="twitter:description" content="父组件往子组件里面传数据1&amp;lt;LeftBar activeText=“基本信息&amp;quot;&amp;gt;&amp;lt;/LeftBar&amp;gt; 123456789101112&amp;lt;li :class=“&amp;#123;‘active’:activeText==‘基本信息&amp;apos;&amp;#125;&amp;quot;&amp;gt;//子组件    &amp;lt;a :href=&amp;quot;baseInfoUrl&amp;quot;&amp;gt;">
+  
+    <link rel="alternate" href="/atom.xml" title="zhangshujuan" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zhangshujuan</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://zhangshujuan.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-父组件和子组件传递数据" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/09/父组件和子组件传递数据/" class="article-date">
+  <time datetime="2018-01-09T06:07:50.000Z" itemprop="datePublished">2018-01-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      父组件和子组件传递数据
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="父组件往子组件里面传数据"><a href="#父组件往子组件里面传数据" class="headerlink" title="父组件往子组件里面传数据"></a>父组件往子组件里面传数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;LeftBar activeText=“基本信息&quot;&gt;&lt;/LeftBar&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;li :class=“&#123;‘active’:activeText==‘基本信息&apos;&#125;&quot;&gt;//子组件</span><br><span class="line">    &lt;a :href=&quot;baseInfoUrl&quot;&gt;基本信息&lt;/a&gt;</span><br><span class="line">&lt;/li&gt;</span><br><span class="line">import &#123; domain &#125; from &apos;../api/api&apos;;</span><br><span class="line">export default &#123;</span><br><span class="line">    props: [“activeText”],／／子组件接收参数，一定要放在data参数之外。</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            baseInfoUrl: domain + &quot;/member/baseInfo.html&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="父组件怎么响应式向子组件传值，子组件怎么通过prop修改父组件数据"><a href="#父组件怎么响应式向子组件传值，子组件怎么通过prop修改父组件数据" class="headerlink" title="父组件怎么响应式向子组件传值，子组件怎么通过prop修改父组件数据"></a>父组件怎么响应式向子组件传值，子组件怎么通过prop修改父组件数据</h2><p>父组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Card v-for=&quot;(card,index) in friendList&quot; :key=&quot;index&quot; :card=&apos;card&apos; :isCustom=&quot;isCustom&quot; :tagId=&quot;tagId&quot; :tags=&quot;tags&quot;</span><br><span class="line"> @update:friendList=&apos;val=&gt;friendList=val&apos; @update:count=&apos;val=&gt;count=val&apos;  @update:pageNo=&apos;val=&gt;pageNo=val&apos; @update:totalpage=&apos;val=&gt;totalpage=val&apos; @update:tagGroupHasFriend=‘val=&gt;tagGroupHasFriend=val&apos;&gt;&lt;/Card&gt;</span><br></pre></td></tr></table></figure></p>
+<p>子组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">this.$emit(&apos;update:friendList&apos;,res.data.friendList);</span><br><span class="line">this.$emit(&apos;update:count&apos;,res.data.count);</span><br><span class="line">$this.$emit(&apos;update:pageNo&apos;, res.data.pageNo);</span><br><span class="line">$this.$emit(&apos;update:totalpage&apos;, res.data.totalpage);</span><br><span class="line">$this.$emit(&apos;update:tagGroupHasFriend&apos;, res.data.tagGroupHasFriend);</span><br></pre></td></tr></table></figure></p>
+<p>子组件中的div点击触发change事件，通过this.$emit进行触发父组件的状态更改</p>
+<h2 id="另一种也可以实现"><a href="#另一种也可以实现" class="headerlink" title="另一种也可以实现"></a>另一种也可以实现</h2><p>子组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h2&gt;child子组件部分&lt;/h2&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</span><br><span class="line">        &lt;button v-on:click=&quot;sengMsgToParent&quot;&gt;&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    props: [“message”],／／子组件接收参数，一定要放在data参数之外。</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        sengMsgToParent:function()&#123;</span><br><span class="line">            this.$emit(&quot;listenToChildEvent&quot;,&quot;this is message is from child&quot; );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>父组件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">        &lt;child v-bind:message=&quot;parentMsg&quot; v-on:listenToChildEvent=&quot;showMsgFromChild&quot;&gt;&lt;/child&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&quot;app&quot;,</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            parentMsg:&quot;hello,child&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        showMsgFromChild:function(data)&#123;</span><br><span class="line">        console.log(data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://zhangshujuan.cn/2018/01/09/父组件和子组件传递数据/" data-id="cjc7eknp5000qb1fp4hsehbsc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/09/axios请求拦截/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          axios请求拦截
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/09/css学习总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">css学习总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/09/动态添加input框并保存值传递给后台/">动态添加input框并保存值传递给后台</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/09/vue三级联动选择框数据的加载/">vue三级联动选择框数据的加载</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/09/vue开始时间和结束时间/">vue开始时间和结束时间</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/09/vue动态加载json里面的数据/">vue动态加载json里面的数据</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/09/vue图片上传裁剪/">vue图片上传裁剪</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 zhangshujuan(289784710@qq.com)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

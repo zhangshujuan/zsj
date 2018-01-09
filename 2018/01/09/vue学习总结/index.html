@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>vue学习总结.md | zhangshujuan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="vue路径跳转带参数12345&amp;lt;el-table-column prop=&quot;operation&quot; label=&quot;操作&quot;&amp;gt;	&amp;lt;template scope=“scope&quot;&amp;gt;		&amp;lt;router-link :to=&quot;&amp;#123;path:&apos;announceDetail&apos;,query: &amp;#123;id:scope.row.id&amp;#125;&amp;#125;&quot; &amp;gt;&amp;lt;el">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue学习总结.md">
+<meta property="og:url" content="http://zhangshujuan.cn/2018/01/09/vue学习总结/index.html">
+<meta property="og:site_name" content="zhangshujuan">
+<meta property="og:description" content="vue路径跳转带参数12345&amp;lt;el-table-column prop=&quot;operation&quot; label=&quot;操作&quot;&amp;gt;	&amp;lt;template scope=“scope&quot;&amp;gt;		&amp;lt;router-link :to=&quot;&amp;#123;path:&apos;announceDetail&apos;,query: &amp;#123;id:scope.row.id&amp;#125;&amp;#125;&quot; &amp;gt;&amp;lt;el">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-09T08:35:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue学习总结.md">
+<meta name="twitter:description" content="vue路径跳转带参数12345&amp;lt;el-table-column prop=&quot;operation&quot; label=&quot;操作&quot;&amp;gt;	&amp;lt;template scope=“scope&quot;&amp;gt;		&amp;lt;router-link :to=&quot;&amp;#123;path:&apos;announceDetail&apos;,query: &amp;#123;id:scope.row.id&amp;#125;&amp;#125;&quot; &amp;gt;&amp;lt;el">
+  
+    <link rel="alternate" href="/atom.xml" title="zhangshujuan" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zhangshujuan</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://zhangshujuan.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vue学习总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/09/vue学习总结/" class="article-date">
+  <time datetime="2018-01-09T03:12:03.000Z" itemprop="datePublished">2018-01-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue学习总结.md
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="vue路径跳转带参数"><a href="#vue路径跳转带参数" class="headerlink" title="vue路径跳转带参数"></a>vue路径跳转带参数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-table-column prop=<span class="string">"operation"</span> label=<span class="string">"操作"</span>&gt;</span><br><span class="line">	&lt;template scope=“scope<span class="string">"&gt;</span></span><br><span class="line"><span class="string">		&lt;router-link :to="</span>&#123;path:<span class="string">'announceDetail'</span>,query: &#123;id:scope.row.id&#125;&#125;<span class="string">" &gt;&lt;el-button type="</span>text<span class="string">"&gt;查看&lt;/el-button&gt;&lt;/router-link&gt;</span></span><br><span class="line"><span class="string">	&lt;/template&gt;</span></span><br><span class="line"><span class="string">&lt;/el-table-column&gt;</span></span><br></pre></td></tr></table></figure>
+<p>获取id:this.$route.query.id</p>
+<h2 id="去掉浏览器的-配置"><a href="#去掉浏览器的-配置" class="headerlink" title="去掉浏览器的#配置"></a>去掉浏览器的#配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">    mode:&quot;history&quot;,</span><br><span class="line">    routes</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="动态的class判断"><a href="#动态的class判断" class="headerlink" title="动态的class判断"></a>动态的class判断</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;s :class=&quot;&#123;&apos;level-icon level-icon-plat&apos;:item.level == &apos;铂金会员&apos;,&apos;level-icon  level-icon-gold&apos;:item.level == &apos;黄金会员&apos;,&apos;level-icon level-icon-vip&apos;:item.level == &apos;vip&apos;,&apos;level-icon  level-icon-auth&apos;:item.level == &apos;实名认证&apos;&#125;&quot; :title=“item.level&quot;&gt;&lt;/s&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="多页面入口配置页面内容绝对跳转路径"><a href="#多页面入口配置页面内容绝对跳转路径" class="headerlink" title="多页面入口配置页面内容绝对跳转路径"></a>多页面入口配置页面内容绝对跳转路径</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export const domain = “http://wwwdev.renhe.cn:805/views”;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import &#123; domain &#125; from &apos;../api/api&apos;;</span><br><span class="line">&lt;a :href=&quot;baseInfoUrl&quot;&gt;基本信息&lt;/a&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            baseInfoUrl: domain + &quot;/member/baseInfo.html&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="表单验证通过vm不支持的箭头函数"><a href="#表单验证通过vm不支持的箭头函数" class="headerlink" title="表单验证通过vm不支持的箭头函数"></a>表单验证通过vm不支持的箭头函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">submitForm(formName) &#123;</span><br><span class="line">    var $this = this;</span><br><span class="line">    this.$refs[formName].validate((valid) =&gt; &#123;</span><br><span class="line">        if (valid) &#123;</span><br><span class="line">            </span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            //console.log(&apos;error submit!!&apos;);</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var promise=this.$refs[formName].validate();</span><br><span class="line">promise.then(function(value)&#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;).catch(function(error)&#123;</span><br><span class="line">    console.log(error)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="通过class判断某个事件是否存在"><a href="#通过class判断某个事件是否存在" class="headerlink" title="通过class判断某个事件是否存在"></a>通过class判断某个事件是否存在</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;javascript:void(0)&quot; v-for=&quot;(letter,index) in letters&quot; </span><br><span class="line">:class=&quot;&#123;&apos;letter&apos;:letter.showChooseLetter==true,&apos;letter disabled&apos;:letter.showChooseLetter==false&#125;&quot;  :key=&quot;index&quot;  </span><br><span class="line">@click=&quot;letter.showChooseLetter &amp;&amp; search($event)&quot;&gt;&#123;&#123;letter.letter&#125;&#125;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="图片解析"><a href="#图片解析" class="headerlink" title="图片解析"></a>图片解析</h2><p>直接在html中引入图片,在当前文件夹加一个assets文件夹放入图片。图片如果是动态的需要用require转base64解析图片<br><figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img :src=&quot;require(&apos;./assets/&apos;+EmojiValues[indexOne][index])&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>如果是css中写图片直接写即可<br><figure class="highlight plain"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.icon-phone &#123;</span><br><span class="line">    background: url(&quot;../images/icon_contact.png&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="验证码倒计时"><a href="#验证码倒计时" class="headerlink" title="验证码倒计时"></a>验证码倒计时</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="title">data</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">        getConfirm:<span class="string">"获取验证码"</span>,</span><br><span class="line">        isNotAllowed : <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">getConfirmCode</span></span>()&#123;</span><br><span class="line">    <span class="built_in">let</span> _this = this;</span><br><span class="line">    <span class="built_in">let</span> mobile = _this.ruleForm.mobile;</span><br><span class="line">    <span class="built_in">let</span> params = &#123; mobile : mobile &#125;;</span><br><span class="line">    <span class="keyword">if</span>(!_this.isNotAllowed) &#123;</span><br><span class="line">        <span class="built_in">let</span> i = 60;</span><br><span class="line">        var timer = setInterval(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">            --i;</span><br><span class="line">            _this.getConfirm = i + <span class="string">"秒后重试"</span>;</span><br><span class="line">            _this.isNotAllowed = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(i == 0) &#123;</span><br><span class="line">                clearInterval(timer);</span><br><span class="line">                _this.getConfirm = <span class="string">"获取验证码"</span>;</span><br><span class="line">                _this.isNotAllowed = <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,1000);</span><br><span class="line">        smscode(params).<span class="keyword">then</span>(res =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (res.code !== 0) &#123;</span><br><span class="line">                <span class="keyword">if</span>(res.errorInfo != null)&#123;</span><br><span class="line">                    _this.<span class="variable">$message</span>(&#123;</span><br><span class="line">                        message: res.errorInfo,</span><br><span class="line">                        <span class="built_in">type</span>: <span class="string">'error'</span>, duration:<span class="string">'1000'</span></span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;</span><br><span class="line">                clearInterval(timer);</span><br><span class="line">                _this.isNotAllowed = <span class="literal">false</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(res.code == 0)&#123;</span><br><span class="line">                _this.<span class="variable">$message</span>(&#123;</span><br><span class="line">                    message: <span class="string">"验证发送成功，请及时查看手机"</span>,</span><br><span class="line">                    <span class="built_in">type</span>: <span class="string">'success'</span>, duration:<span class="string">'1000'</span></span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://zhangshujuan.cn/2018/01/09/vue学习总结/" data-id="cjc7eknoq000db1fpicc4py7g" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/09/css学习总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          css学习总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/09/mac电脑常用的命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">mac电脑常用的命令.md</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/09/动态添加input框并保存值传递给后台/">动态添加input框并保存值传递给后台</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/09/vue三级联动选择框数据的加载/">vue三级联动选择框数据的加载</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/09/vue开始时间和结束时间/">vue开始时间和结束时间</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/09/vue动态加载json里面的数据/">vue动态加载json里面的数据</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/09/vue图片上传裁剪/">vue图片上传裁剪</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 zhangshujuan(289784710@qq.com)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
