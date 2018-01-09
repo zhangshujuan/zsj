@@ -1,0 +1,84 @@
+.archives-wrap
+  margin: 20px 0 40px 0
+
+.archives
+  clearfix()
+
+.archive-year-wrap
+  margin-bottom: 1em
+
+.archive-year
+  @extend $block-caption
+  color: #423d58
+
+.archives
+  column-gap: 10px
+  @media mq-tablet
+    column-count: 1
+  @media mq-normal
+    column-count: 1
+
+.archive-article
+  avoid-column-break()
+  padding: 0 !important
+
+.archive-article-inner
+  @extend $block
+  border: none
+  padding: 20px 30px
+
+.archive-article-title
+  text-decoration: none
+  color: color-default
+  transition: color 0.2s
+  line-height: line-height
+  display: block
+  &:hover
+    color: #f4645f !important
+
+.archive-article-footer
+  margin-top: 1em
+
+.archive-article-date
+  color: color-grey
+  text-decoration: none
+  font-size: 0.85em
+  line-height: 1em
+  margin-bottom: 0.5em
+
+#page-nav
+  clearfix()
+  margin: 40px auto
+  text-align: center
+  color: color-grey
+  overflow: hidden
+  a, span
+    width: 30px
+    height: 30px
+    margin: 0 5px
+    border-radius: 4px
+    background: #fff
+    text-align: center
+    line-height: 30px
+  a
+    color: color-grey
+    text-decoration: none
+    &:hover
+      background: #423d58
+      color: #fff
+      opacity: .7
+  .prev
+    display: none
+    float: left
+  .next
+    display: none
+    float: right
+  .page-number
+    display: inline-block
+    @media mq-mobile
+      display: none
+  .current
+    background: #423d58
+    color: #fff
+  .space
+    color: color-border
