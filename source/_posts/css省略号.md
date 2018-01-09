@@ -1,7 +1,27 @@
-   ---
-   title: 表单验证常用正则表达式
-   date: 2017-04-07 11:00:00
-   tags:
-       - css
-   ---
-   省略号
+---
+title: 省略号
+date: 
+tags:
+    - css
+---
+### 单行省略
+```bash
+.ellipsis {
+ word-wrap: normal; /* for IE */
+ text-overflow: ellipsis;
+ white-space: nowrap;
+ overflow: hidden;
+}
+```
+
+### 多行省略
+```bash
+.text-ellipsis {
+  word-break:break-all;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+```
