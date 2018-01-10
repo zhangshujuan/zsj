@@ -4,8 +4,9 @@ date: 2018-01-09 16:07:19
 tags:
      - vue
 ---
-
-```apple js
+vue开始时间和结束时间
+<!-- more --> 
+```html
 <el-form-item label="时间">
     <el-col :span="11" prop="startTime">
         <el-date-picker

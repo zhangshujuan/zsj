@@ -4,8 +4,10 @@ date: 2018-01-09 15:18:33
 tags:
      - vue
 ---
+vue图片上传裁剪
+<!-- more --> 
 ### 上传
-```apple js
+```html
 <el-upload id="change" ref="upload" :multiple="false"
            :action= BaseURL
            :data={imgStr:headerImage,imgName:imgName}
@@ -22,7 +24,7 @@ multiple默认是true。直接执行图片上传事件。如果不想直接上�
 去执行图片上传。
 
 ### 裁剪
-```apple js
+```js
  this.cropper = new Cropper(image, {
     aspectRatio: 1,//设置剪裁框的长宽比。默认的长宽比是自由比。
     viewMode: 1,
@@ -36,7 +38,7 @@ multiple默认是true。直接执行图片上传事件。如果不想直接上�
 });
 ```
 ### 完整代码如下
-``` bash
+``` html
 <template>
 	<div id="app">
 		<HbHead isIndex="false" isLogin="true"></HbHead>

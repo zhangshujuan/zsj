@@ -4,6 +4,8 @@ date: 2017-04-07 11:00:00
 tags:
     - css
 ---
+background属性
+<!-- more -->
 ## 实现背景透明
 ``` bash
 background-color:#000000;

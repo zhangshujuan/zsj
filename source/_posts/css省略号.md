@@ -4,8 +4,10 @@ date:
 tags:
     - css
 ---
+省略号
+<!-- more -->
 ### 单行省略
-```bash
+```css
 .ellipsis {
  word-wrap: normal; /* for IE */
  text-overflow: ellipsis;
@@ -15,7 +17,7 @@ tags:
 ```
 
 ### 多行省略
-```bash
+```css
 .text-ellipsis {
   word-break:break-all;
   display:-webkit-box;

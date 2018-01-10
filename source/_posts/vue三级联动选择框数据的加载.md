@@ -4,8 +4,10 @@ date: 2018-01-09 16:12:56
 tags:
     - vue
 ---
+vue三级联动选择框数据的加载
+<!-- more --> 
 ### 获取json数据遍历
-```apple js
+```html
 <el-form-item prop="city" class="clearfix">
     <el-select v-model="ruleForm.address" placeholder="国家" class="width-200" @change="changeAddress">
         <el-option v-for="(item,index) in address" :key="item.id" :label="item.name" :value="item.name">
@@ -22,7 +24,7 @@ tags:
 </el-form-item>
 ```
 上面的address是json里面遍历出来的。二级三级prov,city数据获取是直接在computed里面去获取的
-```apple js
+```js
 computed: {
         prov: {
             get: function() {
@@ -52,7 +54,7 @@ computed: {
 }
 ```
 联动change的时候需要清空后面的选择框的值
-```apple js
+```js
 changeAddress: function(val) {
     this.address.map((s, index) => {
         if (s.name === val) {
@@ -65,12 +67,12 @@ changeAddress: function(val) {
 },
 ```
 ### json字符串需要用export default[]括起来
-```json字符串需要用export default[]括起来
+```js
 export default[]
 ```
 ## 完成代码如下
 
-```apple js
+```html
 <template>
     <div id="app" class="enter-lg">
         <div class="center-container">

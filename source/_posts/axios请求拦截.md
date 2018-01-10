@@ -4,7 +4,10 @@ date: 2018-01-09 14:52:06
 tags:
 ---
 axios请求拦截
-```api文件
+<!-- more -->
+
+axios请求拦截api文件
+```js
 import axios from 'axios/dist/axios.min';
 var qs = require('qs');
 let header = { "content-type": "application/x-www-form-urlencoded" };

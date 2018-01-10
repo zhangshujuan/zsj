@@ -4,8 +4,10 @@ date: 2018-01-09 16:21:17
 tags:
      - vue
 ---
+动态添加input框并保存值传递给后台
+<!-- more -->
 ### 遍历一个数组对象拿值
-```apple js
+``` html
 <el-form-item label="我能提供" >
     <div v-for="(preferredTagInfo, index) in ruleForm.preferredTagInfo" v-if="ruleForm.preferredTagInfo.length != 0"
             :key="preferredTagInfo.key"
@@ -17,7 +19,7 @@ tags:
 
 
 ### 往数组里面动态添加值
-```apple js
+``` js
 this.ruleForm.preferredTagInfo.push({
     title: "",
     key: Date.now()
@@ -25,13 +27,13 @@ this.ruleForm.preferredTagInfo.push({
 ```
 
 ### 往后台传值的时候要以逗号分隔的形式传递给后台
-```apple js
+```js
 preferredTagInfoTitle:['1','2','3']
 preferredTagInfoTitle.join(",")就转换成1，2，3给后台了
 ```
 
 ### 完整代码如下
-```apple js
+```html
 <template>
 <div id="app">
 	<HbHead isIndex="false" isLogin="true"></HbHead>

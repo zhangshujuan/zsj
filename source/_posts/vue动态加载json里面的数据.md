@@ -4,6 +4,8 @@ date: 2018-01-09 15:30:31
 tags:
      - vue
 ---
+vue动态加载json里面的数据
+<!-- more --> 
 ``` bash
 <template>
   <div class="emoji">

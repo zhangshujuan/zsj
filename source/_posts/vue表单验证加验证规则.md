@@ -4,8 +4,10 @@ date: 2018-01-09 15:03:55
 tags:
      - vue
 ---
+vue表单验证加验证规则
+<!-- more -->
 ### 表单加正则表达式
-``` 表单加正则表达式
+``` js
 rules: {
     mobile: [
         {required: true, message: '请输入手机号码', trigger: 'blur'},
@@ -28,7 +30,7 @@ rules: {
 ```
 
 ### 完整代码如下
-```apple js
+```html
 <template>
     <div class="table-content register-ruleForm">
         <el-form :model="ruleForm" :rules="rules" ref="ruleForm">
