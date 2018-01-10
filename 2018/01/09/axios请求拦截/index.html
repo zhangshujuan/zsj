@@ -74,7 +74,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>axios请求拦截<br><a id="more"></a></p>
-<p>axios请求拦截<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">import axios from &apos;axios/dist/axios.min&apos;;</span><br><span class="line">var qs = require(&apos;qs&apos;);</span><br><span class="line">let header = &#123; &quot;content-type&quot;: &quot;application/x-www-form-urlencoded&quot; &#125;;</span><br><span class="line">let base = &quot;http://web-dev.renhe.cn/privateapi&quot;;</span><br><span class="line">export const BASE = &quot;http://web-dev.renhe.cn/privateapi&quot;;</span><br><span class="line">//发送加好友的接口</span><br><span class="line">export const addFriend = params =&gt; &#123; return axios.post(`$&#123;BASE&#125;/contact/addFriend`, qs.stringify(params), &#123; headers: header &#125;).then(res =&gt; res.data); &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//token拦截</span><br><span class="line">// 超时时间</span><br><span class="line">axios.defaults.timeout = 5000;</span><br><span class="line">axios.interceptors.request.use(config =&gt; &#123;</span><br><span class="line">    return config</span><br><span class="line">&#125;, error =&gt; &#123;</span><br><span class="line">    return Promise.reject(error)</span><br><span class="line">&#125;)</span><br><span class="line">// http响应拦截器</span><br><span class="line">axios.interceptors.response.use(data =&gt; &#123;// 响应成功关闭loading</span><br><span class="line">    if(data.data.code == -4 &amp;&amp; data.data.data.reminderCode == -3)&#123;</span><br><span class="line">        localStorage.clear();</span><br><span class="line">        localStorage.setItem(&quot;resultContent&quot;,data.data.data.resultContent);</span><br><span class="line">        if(data.data.data.reasonContent)&#123;</span><br><span class="line">            localStorage.setItem(&quot;reasonContent&quot;,data.data.data.reasonContent);</span><br><span class="line">        &#125;</span><br><span class="line">        if(data.data.data.showButton)&#123;</span><br><span class="line">            localStorage.setItem(&quot;showButton&quot;,data.data.data.showButton);</span><br><span class="line">        &#125;</span><br><span class="line">        if(window.location.href != domain+&quot;/home/span.html&quot;)&#123;</span><br><span class="line">            window.location.href = domain+&quot;/home/span.html&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return data</span><br><span class="line">&#125;, error =&gt; &#123;</span><br><span class="line">    return Promise.reject(error)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>axios请求拦截api文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios/dist/axios.min'</span>;</span><br><span class="line"><span class="keyword">var</span> qs = <span class="built_in">require</span>(<span class="string">'qs'</span>);</span><br><span class="line"><span class="keyword">let</span> header = &#123; <span class="string">"content-type"</span>: <span class="string">"application/x-www-form-urlencoded"</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> base = <span class="string">"http://web-dev.renhe.cn/privateapi"</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> BASE = <span class="string">"http://web-dev.renhe.cn/privateapi"</span>;</span><br><span class="line"><span class="comment">//发送加好友的接口</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> addFriend = <span class="function"><span class="params">params</span> =&gt;</span> &#123; <span class="keyword">return</span> axios.post(<span class="string">`<span class="subst">$&#123;BASE&#125;</span>/contact/addFriend`</span>, qs.stringify(params), &#123; <span class="attr">headers</span>: header &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> res.data); &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//token拦截</span></span><br><span class="line"><span class="comment">// 超时时间</span></span><br><span class="line">axios.defaults.timeout = <span class="number">5000</span>;</span><br><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> config</span><br><span class="line">&#125;, error =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// http响应拦截器</span></span><br><span class="line">axios.interceptors.response.use(<span class="function"><span class="params">data</span> =&gt;</span> &#123;<span class="comment">// 响应成功关闭loading</span></span><br><span class="line">    <span class="keyword">if</span>(data.data.code == <span class="number">-4</span> &amp;&amp; data.data.data.reminderCode == <span class="number">-3</span>)&#123;</span><br><span class="line">        localStorage.clear();</span><br><span class="line">        localStorage.setItem(<span class="string">"resultContent"</span>,data.data.data.resultContent);</span><br><span class="line">        <span class="keyword">if</span>(data.data.data.reasonContent)&#123;</span><br><span class="line">            localStorage.setItem(<span class="string">"reasonContent"</span>,data.data.data.reasonContent);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(data.data.data.showButton)&#123;</span><br><span class="line">            localStorage.setItem(<span class="string">"showButton"</span>,data.data.data.showButton);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">window</span>.location.href != domain+<span class="string">"/home/span.html"</span>)&#123;</span><br><span class="line">            <span class="built_in">window</span>.location.href = domain+<span class="string">"/home/span.html"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line">&#125;, error =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -146,23 +146,23 @@
       <ul>
         
           <li>
+            <a href="/2018/01/10/动态添加的html元素怎么让它的div点击事件生效/">动态添加的html元素怎么让它的div点击事件生效</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/10/更改选择框的选中状态/">更改选择框的选中状态</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/10/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/10/css省略号/">省略号</a>
+          </li>
+        
+          <li>
             <a href="/2018/01/09/动态添加input框并保存值传递给后台/">动态添加input框并保存值传递给后台</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/09/vue三级联动选择框数据的加载/">vue三级联动选择框数据的加载</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/09/vue开始时间和结束时间/">vue开始时间和结束时间</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/09/vue动态加载json里面的数据/">vue动态加载json里面的数据</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/09/vue图片上传裁剪/">vue图片上传裁剪</a>
           </li>
         
       </ul>
@@ -180,28 +180,17 @@
         <div class="widget">
             <h3>快速导航</h3>
             <div class="links">
-                <a href="javascript:void(0);">HTML5中国</a>
-                <a href="javascript:void(0);">Bootstrap</a>
-                <a href="javascript:void(0);">ECharts</a>
-                <a href="javascript:void(0);">开发头条</a>
-                <a href="javascript:void(0);">TinyPNG</a>
-                <a href="javascript:void(0);">JSON校验</a>
-                <a href="javascript:void(0);">SegmentFault</a>
-                <a href="javascript:void(0);">在线Api</a>
-                <a href="javascript:void(0);">掘金</a>
-                <a href="javascript:void(0);">前端圈</a>
-                <a href="javascript:void(0);">前端里</a>
+                <a href="https://v3.bootcss.com/">Bootstrap</a>
+                <a href="http://echarts.baidu.com/examples.html">ECharts</a>
+                <a href="http://m.sui.taobao.org/">SUI Mobile</a>
+                <a href="http://element.eleme.io/#/zh-CN/component/quickstart">Element</a>
+                <a href="http://www.iconfont.cn/">iconfont</a>
+                <a href="https://www.awesomes.cn/repo/fengyuanchen/cropper">cropper</a>
+                <a href="https://cn.vuejs.org/v2/guide/">Vue</a>
+                <a href="https://reactjs.org/docs/hello-world.html">React</a>
+                <a href="http://docs.angularjs.org/guide">Angular</a>
             </div>
         </div>
-
-        <div class="clearfix"></div>
-
-        <div class="copyright">
-            <p>Copyright&nbsp;&copy;&nbsp;<span class="iconfont icon-l"></span><span class="iconfont icon-u"></span><span class="iconfont icon-o"></span></p>
-            <p><i class="iconfont icon-wsmp-icprecord"></i>浙ICP备16021390号-1</p>
-            <p><i class="iconfont icon-gonganbeian"></i>浙公网安备33010502003302</p>
-        </div>
-
     </div>
 </footer>
   <script src="/js/zepto.min.js"></script>

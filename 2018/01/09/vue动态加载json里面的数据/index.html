@@ -73,7 +73,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=<span class="string">"emoji"</span>&gt;</span><br><span class="line">    &lt;ul class=<span class="string">"emoji-container"</span>&gt;</span><br><span class="line">      &lt;li v-for=<span class="string">'(emojiGroup,indexOne) in EmojiValues'</span> :key=<span class="string">'indexOne'</span> style=<span class="string">"padding:0"</span> v-if=<span class="string">'indexOne === activeIndex'</span> &gt;</span><br><span class="line">        &lt;a href=<span class="string">"javascript:;"</span> v-for=<span class="string">'(emoji,index) in emojiGroup'</span> :key=<span class="string">'index'</span> @click=<span class="string">'selectItem(index, indexOne)'</span>&gt;</span><br><span class="line">          &lt;span class=<span class="string">"emoji-item"</span> :title=<span class="string">'EmojiKeys[indexOne][index]'</span>&gt;</span><br><span class="line">             &lt;img :src=<span class="string">"require('./assets/'+EmojiValues[indexOne][index])"</span>&gt;</span><br><span class="line">          &lt;/span&gt;</span><br><span class="line">        &lt;/a&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">    </span><br><span class="line">     &lt;ul class=<span class="string">"emoji-controller"</span>&gt;</span><br><span class="line">      &lt;li v-for=<span class="string">"(pannel,index) in pannels"</span> :key=<span class="string">"index"</span> @click=<span class="string">"changeActive(index)"</span> :class=<span class="string">"&#123;'active': index === activeIndex&#125;"</span>&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;  </span><br><span class="line"></span><br><span class="line">  &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">import data from <span class="string">'../assets/js/emoji'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">  name: <span class="string">'emoji'</span>,</span><br><span class="line">  <span class="function"><span class="title">data</span></span> () &#123;</span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">      emojiDataTwo: data,</span><br><span class="line">      pannels: [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>],</span><br><span class="line">      activeIndex: 0</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    changeActive (index) &#123;</span><br><span class="line">      this.activeIndex = index</span><br><span class="line">    &#125;,</span><br><span class="line">    selectItem (index, indexOne) &#123;</span><br><span class="line">      <span class="built_in">let</span> title = this.EmojiKeys[indexOne][index];</span><br><span class="line">      this.<span class="variable">$emit</span>(<span class="string">'select'</span>, title, indexOne, index)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    <span class="function"><span class="title">EmojiKeys</span></span> () &#123;</span><br><span class="line">      <span class="built_in">return</span> this.pannels.map(item =&gt; &#123;</span><br><span class="line">        <span class="built_in">return</span> Object.keys(this.emojiDataTwo[item])</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">EmojiValues</span></span> () &#123;</span><br><span class="line">      <span class="built_in">return</span> this.pannels.map(item =&gt; &#123;</span><br><span class="line">        <span class="built_in">return</span> Object.values(this.emojiDataTwo[item])</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+        <p>vue动态加载json里面的数据<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=<span class="string">"emoji"</span>&gt;</span><br><span class="line">    &lt;ul class=<span class="string">"emoji-container"</span>&gt;</span><br><span class="line">      &lt;li v-for=<span class="string">'(emojiGroup,indexOne) in EmojiValues'</span> :key=<span class="string">'indexOne'</span> style=<span class="string">"padding:0"</span> v-if=<span class="string">'indexOne === activeIndex'</span> &gt;</span><br><span class="line">        &lt;a href=<span class="string">"javascript:;"</span> v-for=<span class="string">'(emoji,index) in emojiGroup'</span> :key=<span class="string">'index'</span> @click=<span class="string">'selectItem(index, indexOne)'</span>&gt;</span><br><span class="line">          &lt;span class=<span class="string">"emoji-item"</span> :title=<span class="string">'EmojiKeys[indexOne][index]'</span>&gt;</span><br><span class="line">             &lt;img :src=<span class="string">"require('./assets/'+EmojiValues[indexOne][index])"</span>&gt;</span><br><span class="line">          &lt;/span&gt;</span><br><span class="line">        &lt;/a&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">    </span><br><span class="line">     &lt;ul class=<span class="string">"emoji-controller"</span>&gt;</span><br><span class="line">      &lt;li v-for=<span class="string">"(pannel,index) in pannels"</span> :key=<span class="string">"index"</span> @click=<span class="string">"changeActive(index)"</span> :class=<span class="string">"&#123;'active': index === activeIndex&#125;"</span>&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;  </span><br><span class="line"></span><br><span class="line">  &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">import data from <span class="string">'../assets/js/emoji'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">  name: <span class="string">'emoji'</span>,</span><br><span class="line">  <span class="function"><span class="title">data</span></span> () &#123;</span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">      emojiDataTwo: data,</span><br><span class="line">      pannels: [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>],</span><br><span class="line">      activeIndex: 0</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    changeActive (index) &#123;</span><br><span class="line">      this.activeIndex = index</span><br><span class="line">    &#125;,</span><br><span class="line">    selectItem (index, indexOne) &#123;</span><br><span class="line">      <span class="built_in">let</span> title = this.EmojiKeys[indexOne][index];</span><br><span class="line">      this.<span class="variable">$emit</span>(<span class="string">'select'</span>, title, indexOne, index)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    <span class="function"><span class="title">EmojiKeys</span></span> () &#123;</span><br><span class="line">      <span class="built_in">return</span> this.pannels.map(item =&gt; &#123;</span><br><span class="line">        <span class="built_in">return</span> Object.keys(this.emojiDataTwo[item])</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">EmojiValues</span></span> () &#123;</span><br><span class="line">      <span class="built_in">return</span> this.pannels.map(item =&gt; &#123;</span><br><span class="line">        <span class="built_in">return</span> Object.values(this.emojiDataTwo[item])</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     <footer class="article-footer">
@@ -146,23 +147,23 @@
       <ul>
         
           <li>
+            <a href="/2018/01/10/动态添加的html元素怎么让它的div点击事件生效/">动态添加的html元素怎么让它的div点击事件生效</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/10/更改选择框的选中状态/">更改选择框的选中状态</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/10/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/10/css省略号/">省略号</a>
+          </li>
+        
+          <li>
             <a href="/2018/01/09/动态添加input框并保存值传递给后台/">动态添加input框并保存值传递给后台</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/09/vue三级联动选择框数据的加载/">vue三级联动选择框数据的加载</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/09/vue开始时间和结束时间/">vue开始时间和结束时间</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/09/vue动态加载json里面的数据/">vue动态加载json里面的数据</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/09/vue图片上传裁剪/">vue图片上传裁剪</a>
           </li>
         
       </ul>
@@ -180,28 +181,17 @@
         <div class="widget">
             <h3>快速导航</h3>
             <div class="links">
-                <a href="javascript:void(0);">HTML5中国</a>
-                <a href="javascript:void(0);">Bootstrap</a>
-                <a href="javascript:void(0);">ECharts</a>
-                <a href="javascript:void(0);">开发头条</a>
-                <a href="javascript:void(0);">TinyPNG</a>
-                <a href="javascript:void(0);">JSON校验</a>
-                <a href="javascript:void(0);">SegmentFault</a>
-                <a href="javascript:void(0);">在线Api</a>
-                <a href="javascript:void(0);">掘金</a>
-                <a href="javascript:void(0);">前端圈</a>
-                <a href="javascript:void(0);">前端里</a>
+                <a href="https://v3.bootcss.com/">Bootstrap</a>
+                <a href="http://echarts.baidu.com/examples.html">ECharts</a>
+                <a href="http://m.sui.taobao.org/">SUI Mobile</a>
+                <a href="http://element.eleme.io/#/zh-CN/component/quickstart">Element</a>
+                <a href="http://www.iconfont.cn/">iconfont</a>
+                <a href="https://www.awesomes.cn/repo/fengyuanchen/cropper">cropper</a>
+                <a href="https://cn.vuejs.org/v2/guide/">Vue</a>
+                <a href="https://reactjs.org/docs/hello-world.html">React</a>
+                <a href="http://docs.angularjs.org/guide">Angular</a>
             </div>
         </div>
-
-        <div class="clearfix"></div>
-
-        <div class="copyright">
-            <p>Copyright&nbsp;&copy;&nbsp;<span class="iconfont icon-l"></span><span class="iconfont icon-u"></span><span class="iconfont icon-o"></span></p>
-            <p><i class="iconfont icon-wsmp-icprecord"></i>浙ICP备16021390号-1</p>
-            <p><i class="iconfont icon-gonganbeian"></i>浙公网安备33010502003302</p>
-        </div>
-
     </div>
 </footer>
   <script src="/js/zepto.min.js"></script>

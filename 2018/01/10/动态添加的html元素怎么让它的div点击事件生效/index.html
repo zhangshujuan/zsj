@@ -14,7 +14,7 @@
   <meta name="description" content="zsj的个人博客（www.zhangshujuan.cn）,WEB前端学习经验总结">
   <meta name="keywords" content="zsj,前端开发,,web前端,blog,博客,html,html5,css,css3,js,javascript,jquery,gulp,scss,sass,less,插件">
   
-  <title>mac电脑常用的命令.md | zhangshujuan</title>
+  <title>动态添加的html元素怎么让它的div点击事件生效 | zhangshujuan</title>
 
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/zsj.css">
@@ -54,7 +54,7 @@
   <section class="main-wrap">
     <div class="container clearfix">
       <main class="content">
-        <article id="post-mac电脑常用的命令" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-动态添加的html元素怎么让它的div点击事件生效" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -62,42 +62,40 @@
         
   
     <h1 class="article-title" itemprop="name">
-      mac电脑常用的命令.md
+      动态添加的html元素怎么让它的div点击事件生效
     </h1>
   
 
-        <a href="/2018/01/09/mac电脑常用的命令/" class="article-date">
-  <time datetime="2018-01-09T03:02:06.000Z" itemprop="datePublished">2018-01-09</time>
+        <a href="/2018/01/10/动态添加的html元素怎么让它的div点击事件生效/" class="article-date">
+  <time datetime="2018-01-10T08:31:16.000Z" itemprop="datePublished">2018-01-10</time>
 </a>
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>mac电脑常用的命令<br><a id="more"></a><br>control+command+F退出全屏</p>
-<p>ctrl+d是终止输入</p>
-<p>ctrl+C是结束程序。</p>
-
+        <p>动态添加的html元素怎么让它的div点击事件生效<br><a id="more"></a></p>
+<h2 id="动态添加的html元素怎么让它的div点击事件生效"><a href="#动态添加的html元素怎么让它的div点击事件生效" class="headerlink" title="动态添加的html元素怎么让它的div点击事件生效"></a>动态添加的html元素怎么让它的div点击事件生效</h2><h3 id="jquery-1-9以下可以用live去绑定事件。"><a href="#jquery-1-9以下可以用live去绑定事件。" class="headerlink" title="jquery 1.9以下可以用live去绑定事件。"></a>jquery 1.9以下可以用live去绑定事件。</h3><p>live() 方法附加的事件处理程序适用于匹配选择器的当前及未来的元素（比如由脚本创建的新元素）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"button"</span>).live(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $(<span class="string">"p"</span>).slideToggle();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="jquery-1-9以上的版本删除了live方法。建议用以下方式实现"><a href="#jquery-1-9以上的版本删除了live方法。建议用以下方式实现" class="headerlink" title="jquery 1.9以上的版本删除了live方法。建议用以下方式实现"></a>jquery 1.9以上的版本删除了live方法。建议用以下方式实现</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(<span class="string">'click'</span>, <span class="string">'.list li'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'你点我了'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
       
     
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2018/01/09/vue学习总结/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          vue学习总结
-        
-      </div>
-    </a>
   
+    <a href="/2018/01/10/更改选择框的选中状态/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">更改选择框的选中状态</div>
+    </a>
   
 </nav>
 
