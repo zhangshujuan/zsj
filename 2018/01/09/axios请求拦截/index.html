@@ -9,54 +9,47 @@
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="css/images/favicon.ico" type="image/x-icon">
-  <meta name="author" content="luoyanming">
-  <meta name="email" content="13575458746@163.com">
-  <meta name="description" content="luoym的个人博客（www.luoym.com）,记录WEB前端学习过程中的点滴！">
-  <meta name="keywords" content="luoym,前端开发,代码,程序员,web前端,blog,博客,html,html5,css,css3,js,javascript,jquery,gulp,scss,sass,插件">
+  <meta name="author" content="zsj">
+  <meta name="email" content="289784710@qq.com">
+  <meta name="description" content="zsj的个人博客（www.zhangshujuan.cn）,WEB前端学习经验总结">
+  <meta name="keywords" content="zsj,前端开发,,web前端,blog,博客,html,html5,css,css3,js,javascript,jquery,gulp,scss,sass,less,插件">
   
   <title>axios请求拦截 | zhangshujuan</title>
 
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/luoym.css">
+  <link rel="stylesheet" href="/css/zsj.css">
 </head>
 
 <body>
-  <header class="header">
-    <div class="container">
-        <a href="/" class="logo clearfix">
-            <i></i>
-            <p>
-                <span class="iconfont icon-l"></span>
-                <span class="iconfont icon-u"></span>
-                <span class="iconfont icon-o"></span>
-            </p>
-        </a>
-        <a href="javascript:void(0);" class="btn-nav">
-            <span class="line line-1"></span>
-            <span class="line line-2"></span>
-        </a>
-    </div>
-</header>
+  <div class="body_container">
+    <header id="header">
+        <div class="site-name">
+            <h1 class="hidden">寒梅傲雪</h1>
+            <a id="logo" href="/.">寒梅傲雪</a>
+            <p class="description">宝剑锋从磨砺出,梅花香自苦寒来</p>
+        </div>
+    </header>
 
-<nav class="navbar">
-    <div class="container">
-        <ul class="clearfix">
-            
-            <li>
-                <a href="/">
-                    <p>Home</p>
-                </a>
-            </li>
-            
-            <li>
-                <a href="/archives">
-                    <p>Archives</p>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</nav>
+    <nav class="navbar">
+        <div class="container">
+            <ul class="clearfix">
+                
+                <li>
+                    <a href="/">
+                        <p>Home</p>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/archives">
+                        <p>Archives</p>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+</div>
 
   <section class="main-wrap">
     <div class="container clearfix">
@@ -80,7 +73,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>axios请求拦截<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">import axios from &apos;axios/dist/axios.min&apos;;</span><br><span class="line">var qs = require(&apos;qs&apos;);</span><br><span class="line">let header = &#123; &quot;content-type&quot;: &quot;application/x-www-form-urlencoded&quot; &#125;;</span><br><span class="line">let base = &quot;http://web-dev.renhe.cn/privateapi&quot;;</span><br><span class="line">export const BASE = &quot;http://web-dev.renhe.cn/privateapi&quot;;</span><br><span class="line">//发送加好友的接口</span><br><span class="line">export const addFriend = params =&gt; &#123; return axios.post(`$&#123;BASE&#125;/contact/addFriend`, qs.stringify(params), &#123; headers: header &#125;).then(res =&gt; res.data); &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//token拦截</span><br><span class="line">// 超时时间</span><br><span class="line">axios.defaults.timeout = 5000;</span><br><span class="line">axios.interceptors.request.use(config =&gt; &#123;</span><br><span class="line">    return config</span><br><span class="line">&#125;, error =&gt; &#123;</span><br><span class="line">    return Promise.reject(error)</span><br><span class="line">&#125;)</span><br><span class="line">// http响应拦截器</span><br><span class="line">axios.interceptors.response.use(data =&gt; &#123;// 响应成功关闭loading</span><br><span class="line">    if(data.data.code == -4 &amp;&amp; data.data.data.reminderCode == -3)&#123;</span><br><span class="line">        localStorage.clear();</span><br><span class="line">        localStorage.setItem(&quot;resultContent&quot;,data.data.data.resultContent);</span><br><span class="line">        if(data.data.data.reasonContent)&#123;</span><br><span class="line">            localStorage.setItem(&quot;reasonContent&quot;,data.data.data.reasonContent);</span><br><span class="line">        &#125;</span><br><span class="line">        if(data.data.data.showButton)&#123;</span><br><span class="line">            localStorage.setItem(&quot;showButton&quot;,data.data.data.showButton);</span><br><span class="line">        &#125;</span><br><span class="line">        if(window.location.href != domain+&quot;/home/span.html&quot;)&#123;</span><br><span class="line">            window.location.href = domain+&quot;/home/span.html&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return data</span><br><span class="line">&#125;, error =&gt; &#123;</span><br><span class="line">    return Promise.reject(error)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+        <p>axios请求拦截<br><a id="more"></a></p>
+<p>axios请求拦截<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">import axios from &apos;axios/dist/axios.min&apos;;</span><br><span class="line">var qs = require(&apos;qs&apos;);</span><br><span class="line">let header = &#123; &quot;content-type&quot;: &quot;application/x-www-form-urlencoded&quot; &#125;;</span><br><span class="line">let base = &quot;http://web-dev.renhe.cn/privateapi&quot;;</span><br><span class="line">export const BASE = &quot;http://web-dev.renhe.cn/privateapi&quot;;</span><br><span class="line">//发送加好友的接口</span><br><span class="line">export const addFriend = params =&gt; &#123; return axios.post(`$&#123;BASE&#125;/contact/addFriend`, qs.stringify(params), &#123; headers: header &#125;).then(res =&gt; res.data); &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//token拦截</span><br><span class="line">// 超时时间</span><br><span class="line">axios.defaults.timeout = 5000;</span><br><span class="line">axios.interceptors.request.use(config =&gt; &#123;</span><br><span class="line">    return config</span><br><span class="line">&#125;, error =&gt; &#123;</span><br><span class="line">    return Promise.reject(error)</span><br><span class="line">&#125;)</span><br><span class="line">// http响应拦截器</span><br><span class="line">axios.interceptors.response.use(data =&gt; &#123;// 响应成功关闭loading</span><br><span class="line">    if(data.data.code == -4 &amp;&amp; data.data.data.reminderCode == -3)&#123;</span><br><span class="line">        localStorage.clear();</span><br><span class="line">        localStorage.setItem(&quot;resultContent&quot;,data.data.data.resultContent);</span><br><span class="line">        if(data.data.data.reasonContent)&#123;</span><br><span class="line">            localStorage.setItem(&quot;reasonContent&quot;,data.data.data.reasonContent);</span><br><span class="line">        &#125;</span><br><span class="line">        if(data.data.data.showButton)&#123;</span><br><span class="line">            localStorage.setItem(&quot;showButton&quot;,data.data.data.showButton);</span><br><span class="line">        &#125;</span><br><span class="line">        if(window.location.href != domain+&quot;/home/span.html&quot;)&#123;</span><br><span class="line">            window.location.href = domain+&quot;/home/span.html&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return data</span><br><span class="line">&#125;, error =&gt; &#123;</span><br><span class="line">    return Promise.reject(error)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -211,7 +205,7 @@
     </div>
 </footer>
   <script src="/js/zepto.min.js"></script>
-<script src="/js/luoym.js"></script>
+<script src="/js/zsj.js"></script>
 
 
 </body>
