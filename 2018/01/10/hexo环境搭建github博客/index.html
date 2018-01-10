@@ -14,7 +14,7 @@
   <meta name="description" content="zsj的个人博客（www.zhangshujuan.cn）,WEB前端学习经验总结">
   <meta name="keywords" content="zsj,前端开发,,web前端,blog,博客,html,html5,css,css3,js,javascript,jquery,gulp,scss,sass,less,插件">
   
-  <title>Tag: js | zhangshujuan</title>
+  <title>hexo环境搭建github博客 | zhangshujuan</title>
 
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/zsj.css">
@@ -54,58 +54,62 @@
   <section class="main-wrap">
     <div class="container clearfix">
       <main class="content">
+        <article id="post-hexo环境搭建github博客" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
         
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/10/动态添加的html元素怎么让它的div点击事件生效/" class="archive-article-date">
-  <time datetime="2018-01-10T08:31:16.000Z" itemprop="datePublished">1月 10</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/10/动态添加的html元素怎么让它的div点击事件生效/">动态添加的html元素怎么让它的div点击事件生效</a>
+    <h1 class="article-title" itemprop="name">
+      hexo环境搭建github博客
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/10/更改选择框的选中状态/" class="archive-article-date">
-  <time datetime="2018-01-10T08:30:45.000Z" itemprop="datePublished">1月 10</time>
+        <a href="/2018/01/10/hexo环境搭建github博客/" class="article-date">
+  <time datetime="2018-01-10T08:59:38.000Z" itemprop="datePublished">2018-01-10</time>
 </a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/10/更改选择框的选中状态/">更改选择框的选中状态</a>
-    </h1>
-  
+        <p>hexo环境搭建github博客<br><a id="more"></a><br>新建仓库<br>New repository<br>在仓库名字输入框中输入：（项目名称可以随便）</p>
+<p>在本地新建一个分支： git branch dev<br>切换到你的新分支: git checkout dev</p>
+<p>在dev分支下面去搭建hexo环境。搭建好会自动编译到marster分支<br>第一步要切换node版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvm use 7.5.0</span><br></pre></td></tr></table></figure></p>
+<p>下载安装hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
+<p>安装好hexo以后，在终端输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo</span><br></pre></td></tr></table></figure></p>
+<p>初始化博客<br>// 建立一个博客文件夹，并初始化博客，<folder>为文件夹的名称，可以随便起名字<br>$ hexo init <folder><br>// 进入博客文件夹，<folder>为文件夹的名称<br>$ cd <folder><br>// node.js的命令，根据博客既定的dependencies配置安装所有的依赖包<br>$ npm install</folder></folder></folder></folder></p>
+<p>发表一篇文章<br>在终端输入：</p>
+<p>// 新建一篇文章<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"文章标题"</span></span><br></pre></td></tr></table></figure></p>
+<p>启动服务预览：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
+<p>生成<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure></p>
+<p>部署<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
+<p>hexo g == hexo generate#生成<br>hexo s == hexo server #启动服务预览<br>hexo d == hexo deploy#部署</p>
+<p>最后在github Settings上面去配置github pages<br> 网站为 www.zhangshujuan.cn</p>
+<p> CNAME文件内容www.zhangshujuan.cn</p>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      
+    
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/10/动态添加的html元素怎么让它的div点击事件生效/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">动态添加的html元素怎么让它的div点击事件生效</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
       </main>
