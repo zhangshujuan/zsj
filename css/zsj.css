@@ -50,6 +50,19 @@ body {
     color: #fff;
     text-shadow: 1px 3px 6px #113f6e
 }
+.navbar{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+.navbar .container{
+    width: 960px;
+}
 .navbar .clearfix:after, .navbar .clearfix:before{
     display: none;
+}
+#busuanzi_container_site_pv{
+    color: #fff;
+    float: right;
 }
