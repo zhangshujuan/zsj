@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="telephone=no,email=no" name="format-detection">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="css/images/favicon.ico" type="image/x-icon">
+  <meta name="author" content="zsj">
+  <meta name="email" content="289784710@qq.com">
+  <meta name="description" content="zsj的个人博客（www.zhangshujuan.cn）,WEB前端学习经验总结">
+  <meta name="keywords" content="zsj,前端开发,,web前端,blog,博客,html,html5,css,css3,js,javascript,jquery,gulp,scss,sass,less,插件">
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+  <title>vue下拉选择怎么传值给后台 | zhangshujuan</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/zsj.css">
+</head>
+
+<body>
+  <div class="body_container">
+    <header id="header">
+        <div class="site-name">
+            <h1 class="hidden">寒梅傲雪</h1>
+            <a id="logo" href="/.">寒梅傲雪</a>
+            <p class="description">宝剑锋从磨砺出,梅花香自苦寒来</p>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container">
+            <ul class="clearfix">
+                
+                <li>
+                    <a href="/">
+                        <p>Home</p>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/archives">
+                        <p>Archives</p>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+    <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+</div>
+
+  <section class="main-wrap">
+    <div class="container clearfix">
+      <main class="content">
+        <article id="post-vue下拉选择怎么传值给后台" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue下拉选择怎么传值给后台
+    </h1>
+  
+
+        <a href="/2018/01/11/vue下拉选择怎么传值给后台/" class="article-date">
+  <time datetime="2018-01-11T06:10:22.000Z" itemprop="datePublished">2018-01-11</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>vue下拉选择怎么传值给后台<br><a id="more"></a><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">"性质"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-select</span> <span class="attr">v-model</span>=<span class="string">"ruleForm.orgtype"</span> <span class="attr">placeholder</span>=<span class="string">"请选择"</span>  @<span class="attr">change</span>=<span class="string">"type"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-option</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in ruleForm.orgTypeList"</span> <span class="attr">:key</span>=<span class="string">"item.key"</span> <span class="attr">:label</span>=<span class="string">"item.value"</span> <span class="attr">:value</span>=<span class="string">"item.value"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">"规模"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-select</span> <span class="attr">v-model</span>=<span class="string">"ruleForm.orgsize"</span> <span class="attr">placeholder</span>=<span class="string">"请选择"</span> @<span class="attr">change</span>=<span class="string">"size"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-option</span> <span class="attr">v-for</span>=<span class="string">"(item, index) in ruleForm.orgSizeList"</span> <span class="attr">:key</span>=<span class="string">"item.key"</span> <span class="attr">:label</span>=<span class="string">"item.value"</span> <span class="attr">:value</span>=<span class="string">"item.value"</span> &gt;</span><span class="tag">&lt;/<span class="name">el-option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//orgTypeList:[&#123;key:1,value:""&#125;],//string 类型名</span></span><br><span class="line"><span class="comment">//orgSizeList:[&#123;key:1,value:""&#125;],</span></span><br><span class="line">type(val)&#123;</span><br><span class="line">    <span class="keyword">this</span>.ruleForm.orgTypeList.map(<span class="function">(<span class="params">s,index</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.value===val)&#123;</span><br><span class="line">            <span class="keyword">this</span>.ruleForm.typeId = <span class="keyword">this</span>.ruleForm.orgTypeList[index].key;</span><br><span class="line">            <span class="comment">//console.log(this.ruleForm.typeId);</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br><span class="line">size(val)&#123;</span><br><span class="line">    <span class="keyword">this</span>.ruleForm.orgSizeList.map(<span class="function">(<span class="params">s,index</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.value===val)&#123;</span><br><span class="line">            <span class="keyword">this</span>.ruleForm.sizeId = <span class="keyword">this</span>.ruleForm.orgSizeList[index].key;</span><br><span class="line">            <span class="comment">//console.log(this.ruleForm.sizeId);</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+    
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/10/hexo环境搭建github博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hexo环境搭建github博客</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+      </main>
+      
+      
+        <aside class="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/11/vue下拉选择怎么传值给后台/">vue下拉选择怎么传值给后台</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/10/hexo环境搭建github博客/">hexo环境搭建github博客</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/10/动态添加的html元素怎么让它的div点击事件生效/">动态添加的html元素怎么让它的div点击事件生效</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/10/更改选择框的选中状态/">更改选择框的选中状态</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/10/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+  </section>
+  
+  <footer class="footer">
+    <div class="container clearfix">
+        <div class="widget">
+            <h3>快速导航</h3>
+            <div class="links">
+                <a href="https://v3.bootcss.com/">Bootstrap</a>
+                <a href="http://echarts.baidu.com/examples.html">ECharts</a>
+                <a href="http://m.sui.taobao.org/">SUI Mobile</a>
+                <a href="http://element.eleme.io/#/zh-CN/component/quickstart">Element</a>
+                <a href="http://www.iconfont.cn/">iconfont</a>
+                <a href="https://www.awesomes.cn/repo/fengyuanchen/cropper">cropper</a>
+                <a href="https://cn.vuejs.org/v2/guide/">Vue</a>
+                <a href="https://reactjs.org/docs/hello-world.html">React</a>
+                <a href="http://docs.angularjs.org/guide">Angular</a>
+            </div>
+        </div>
+    </div>
+</footer>
+  <script src="/js/zepto.min.js"></script>
+<script src="/js/zsj.js"></script>
+
+
+</body>
+</html>
