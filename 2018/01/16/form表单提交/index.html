@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="telephone=no,email=no" name="format-detection">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="css/images/favicon.ico" type="image/x-icon">
+  <meta name="author" content="zsj">
+  <meta name="email" content="289784710@qq.com">
+  <meta name="description" content="zsj的个人博客（www.zhangshujuan.cn）,WEB前端学习经验总结">
+  <meta name="keywords" content="zsj,前端开发,,web前端,blog,博客,html,html5,css,css3,js,javascript,jquery,gulp,scss,sass,less,插件">
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+  <title>form表单提交 | zhangshujuan</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/zsj.css">
+</head>
+
+<body>
+  <div class="body_container">
+    <header id="header">
+        <div class="site-name">
+            <h1 class="hidden">寒梅傲雪</h1>
+            <a id="logo" href="/.">寒梅傲雪</a>
+            <p class="description">宝剑锋从磨砺出,梅花香自苦寒来</p>
+        </div>
+    </header>
+
+    <nav class="navbar clearfix">
+        <div class="container">
+            <ul class="clearfix">
+                
+                <li>
+                    <a href="/">
+                        <p>Home</p>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/archives">
+                        <p>Archives</p>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        <span id="busuanzi_container_site_pv">
+        本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+    </nav>
+</div>
+
+  <section class="main-wrap">
+    <div class="container clearfix">
+      <main class="content">
+        <article id="post-form表单提交" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      form表单提交
+    </h1>
+  
+
+        <a href="/2018/01/16/form表单提交/" class="article-date">
+  <time datetime="2018-01-16T06:11:29.000Z" itemprop="datePublished">2018-01-16</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>form表单提交<br><a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(<span class="string">'click'</span>,<span class="string">".js-savePageForm"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> __form = $($(<span class="keyword">this</span>).data(<span class="string">"target"</span>));</span><br><span class="line">      <span class="keyword">var</span> _dir = $(<span class="keyword">this</span>).data(<span class="string">"dirurl"</span>);</span><br><span class="line">      __app.myValidate(__form,<span class="function"><span class="keyword">function</span>(<span class="params">item,text</span>)</span>&#123;</span><br><span class="line">          $.alert(text);</span><br><span class="line">      &#125;,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">          url:__form.attr(<span class="string">"action"</span>),</span><br><span class="line">          type:__form.attr(<span class="string">"method"</span>)||<span class="string">"post"</span>,</span><br><span class="line">          data:__form.serializeArray(),</span><br><span class="line">          dataType:<span class="string">"json"</span>,</span><br><span class="line">          success:<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">              <span class="keyword">if</span>(res.errorCode != <span class="number">0</span>)&#123;</span><br><span class="line">                $.alert(res.errorInfo);</span><br><span class="line">              &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                $.router.load(_dir);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="form表单提交可以通过隐藏域传参"><a href="#form表单提交可以通过隐藏域传参" class="headerlink" title="form表单提交可以通过隐藏域传参"></a>form表单提交可以通过隐藏域传参</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"appid"</span> <span class="attr">id</span>=<span class="string">"appid"</span> <span class="attr">value</span>=<span class="string">"$&#123;appInfo.appid&#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"apppath"</span> <span class="attr">id</span>=<span class="string">"apppath"</span> <span class="attr">value</span>=<span class="string">"$&#123;appInfo.apppath&#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"originalname"</span> <span class="attr">id</span>=<span class="string">"originalname"</span> <span class="attr">value</span>=<span class="string">"$&#123;appInfo.originalname&#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"apppackagename"</span> <span class="attr">id</span>=<span class="string">"apppackagename"</span> <span class="attr">value</span>=<span class="string">"$&#123;appInfo.apppackagename&#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"appversioncode"</span> <span class="attr">id</span>=<span class="string">"appversioncode"</span> <span class="attr">value</span>=<span class="string">"$&#123;appInfo.appversioncode&#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"appiconpath"</span> <span class="attr">id</span>=<span class="string">"appiconpath"</span> <span class="attr">value</span>=<span class="string">"$&#123;appInfo.appiconpath&#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"appscreenshotpath"</span> <span class="attr">id</span>=<span class="string">"appscreenshotpath"</span> <span class="attr">value</span>=<span class="string">"$&#123;appInfo.appscreenshotpath &#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"apksize"</span> <span class="attr">id</span>=<span class="string">"apksize"</span> <span class="attr">value</span>=<span class="string">"$&#123;appInfo.apksize&#125;"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#save"</span>).bind(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> apploadl = $(<span class="string">"#appload .files .template-upload"</span>).length;</span><br><span class="line">	<span class="keyword">if</span> (apploadl == <span class="number">0</span>) &#123;</span><br><span class="line">		alert_show(<span class="string">"请上传应用图标"</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">		$(<span class="string">"#form1"</span>).submit();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Ajax提交"><a href="#Ajax提交" class="headerlink" title="Ajax提交"></a>Ajax提交</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">".mapheader input"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   $(<span class="string">".loadLocation"</span>).css(<span class="string">"display"</span>,<span class="string">"block"</span>);  </span><br><span class="line">   <span class="keyword">var</span> str = <span class="string">'$&#123;deviceid&#125;'</span>;</span><br><span class="line">   <span class="keyword">var</span> serialnumber = <span class="string">'$&#123;deviceLocation.serialnumber&#125;'</span>;</span><br><span class="line">   <span class="keyword">var</span> id = <span class="string">'$&#123;deviceLocation.id&#125;'</span>;</span><br><span class="line">   <span class="comment">//document.location.href = 'devLocationStr?idstr='+str+'&amp;serialnumber='+serialnumber+'&amp;id='+id;</span></span><br><span class="line">   <span class="keyword">var</span> data = <span class="string">'idstr='</span>+str+<span class="string">'&amp;serialnumber='</span>+serialnumber+<span class="string">'&amp;id='</span>+id+<span class="string">'&amp;type=9&amp;d='</span>+(<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime();</span><br><span class="line">   $.ajax(&#123;   </span><br><span class="line">       <span class="comment">//要用post方式   </span></span><br><span class="line">       type: <span class="string">"POST"</span>,   </span><br><span class="line">       <span class="comment">//方法所在页面和方法名   </span></span><br><span class="line">       url: <span class="string">"devLocationStr"</span>,   </span><br><span class="line">       data:data,<span class="comment">//没有参数的初始化 </span></span><br><span class="line">       success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123; </span><br><span class="line">           <span class="comment">//返回的数据用data.d获取内容   </span></span><br><span class="line">        setTimeout(<span class="string">"devLocation()"</span>,<span class="number">1000</span>);</span><br><span class="line">          <span class="keyword">if</span>(data != <span class="string">'successful'</span> )&#123;</span><br><span class="line">               cmccTips.createTips(<span class="string">"定位失败！"</span>, <span class="string">"middle"</span>);</span><br><span class="line">          &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">document</span>.location.href = <span class="string">'location?deviceid='</span>+str+<span class="string">'&amp;serialnumber='</span>+serialnumber+<span class="string">'&amp;d='</span>+(<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime();</span><br><span class="line">          &#125;</span><br><span class="line">       &#125;,</span><br><span class="line">        error: <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">            setTimeout(<span class="string">"devLocation()"</span>,<span class="number">1000</span>);</span><br><span class="line">            cmccTips.createTips(<span class="string">"定位失败！"</span>, <span class="string">"middle"</span>);</span><br><span class="line">        &#125;  </span><br><span class="line">   &#125;); </span><br><span class="line">    <span class="comment">//禁用按钮的提交 </span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+    
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/16/日期选择控件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          日期选择控件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/16/git常用的命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">git常用的命令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+      </main>
+      
+      
+        <aside class="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/16/placeholderIE兼容/">placeholderIE兼容</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/16/iframe学习总结/">iframe学习总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/16/fileupload插件的研究/">fileupload插件的研究</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/16/学习总结/">学习总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/16/一个页面传值给另一个页面方法/">一个页面传值给另一个页面方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+  </section>
+  
+  <footer class="footer">
+    <div class="container clearfix">
+        <div class="widget">
+            <h3>快速导航</h3>
+            <div class="links">
+                <a href="https://v3.bootcss.com/">Bootstrap</a>
+                <a href="http://echarts.baidu.com/examples.html">ECharts</a>
+                <a href="http://m.sui.taobao.org/">SUI Mobile</a>
+                <a href="http://element.eleme.io/#/zh-CN/component/quickstart">Element</a>
+                <a href="http://www.iconfont.cn/">iconfont</a>
+                <a href="https://www.awesomes.cn/repo/fengyuanchen/cropper">cropper</a>
+                <a href="https://cn.vuejs.org/v2/guide/">Vue</a>
+                <a href="https://reactjs.org/docs/hello-world.html">React</a>
+                <a href="http://docs.angularjs.org/guide">Angular</a>
+            </div>
+        </div>
+    </div>
+</footer>
+  <script src="/js/zepto.min.js"></script>
+<script src="/js/zsj.js"></script>
+
+
+</body>
+</html>
