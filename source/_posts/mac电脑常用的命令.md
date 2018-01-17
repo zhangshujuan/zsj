@@ -10,3 +10,5 @@ control+command+F退出全屏
 ctrl+d是终止输入
 
 ctrl+C是结束程序。
+
+webStorm中全局替换按钮是command+shift+R
